@@ -1,7 +1,13 @@
 body {
   font-family: sans-serif;
   text-align: center;
-  margin: 2em;
+  background: #222;
+  color: #fff;
+  padding: 2em;
+}
+
+h1 {
+  margin-bottom: 1em;
 }
 
 .lock {
@@ -11,21 +17,61 @@ body {
   margin-bottom: 1em;
 }
 
-.paddle {
-  width: 50px;
-  height: 50px;
-  background: #eee;
-  border: 2px solid #333;
+.dial {
+  width: 60px;
+  height: 100px;
+  background: radial-gradient(circle at center, #444, #111);
+  border: 3px solid #999;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+  position: relative;
+  transition: transform 0.5s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 10px;
 }
 
-.unlocked {
-  color: green;
-  font-weight: bold;
+.dial select {
+  background: #000;
+  color: #0f0;
+  font-size: 24px;
+  border: none;
+  outline: none;
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  transform: rotateX(0deg);
+  transition: transform 0.5s ease;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background: #0f0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0f0;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: #0c0;
+  box-shadow: 0 0 20px #0f0;
+}
+
+#status {
+  font-size: 1.5em;
+  margin-top: 1em;
+}
+
+.unlocked-effect {
+  color: lime;
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px lime; }
+  to { text-shadow: 0 0 20px lime, 0 0 30px lime; }
 }
