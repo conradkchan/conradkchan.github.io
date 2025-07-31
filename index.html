@@ -10,6 +10,9 @@
 <body>
   <h1>Survivor: Tribal Combo Lock</h1>
 
+  <!-- Padlock icon with spin animation -->
+  <div id="padlock" class="padlock">🔒</div>
+
   <div class="lock">
     <div class="dial" data-index="0"></div>
     <div class="dial" data-index="1"></div>
@@ -37,10 +40,10 @@
           select.appendChild(option);
         }
 
-        // Simulated bump animation (no rotation)
+        // Add bump animation on change
         select.addEventListener("change", () => {
           select.classList.remove("bump");
-          void select.offsetWidth; // force reflow to restart animation
+          void select.offsetWidth; // trigger reflow
           select.classList.add("bump");
         });
 
@@ -54,13 +57,21 @@
         .join("");
 
       const status = document.getElementById("status");
+      const padlock = document.getElementById("padlock");
+
+      // Spin the padlock icon
+      padlock.classList.remove("spin");
+      void padlock.offsetWidth; // force reflow to restart animation
+      padlock.classList.add("spin");
 
       if (input === correctPassword) {
         status.textContent = "🪵 Combo Correct — Unlocked!";
         status.className = "unlocked-effect";
+        padlock.textContent = "🔓"; // Open lock on success
       } else {
         status.textContent = "🔥 Incorrect combo. Try again!";
         status.className = "";
+        padlock.textContent = "🔒"; // Closed lock on fail
       }
     }
   </script>
