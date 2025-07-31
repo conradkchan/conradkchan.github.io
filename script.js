@@ -11,9 +11,12 @@ window.onload = () => {
       select.appendChild(option);
     }
 
-    // Spin animation when user changes the value
+    // Simulate spin by animating then resetting rotation to 0
     select.addEventListener("change", () => {
-      select.style.transform = `rotateX(${360 + Math.random() * 360}deg)`;
+      select.classList.add("spinning");
+      setTimeout(() => {
+        select.classList.remove("spinning");
+      }, 300);
     });
 
     dial.appendChild(select);
