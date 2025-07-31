@@ -59,9 +59,11 @@
       const status = document.getElementById("status");
       const padlock = document.getElementById("padlock");
 
-      // Spin the padlock icon
-      padlock.classList.remove("spin");
-      void padlock.offsetWidth; // force reflow to restart animation
+      // Remove 'spin' class if present, force reflow, then add it again to restart animation
+      if (padlock.classList.contains("spin")) {
+        padlock.classList.remove("spin");
+        void padlock.offsetWidth; // force reflow
+      }
       padlock.classList.add("spin");
 
       if (input === correctPassword) {
