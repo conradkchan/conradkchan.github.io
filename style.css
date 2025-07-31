@@ -24,7 +24,7 @@ h1 {
   background: radial-gradient(circle at center, #444, #111);
   border: 3px solid #999;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,10 +41,15 @@ h1 {
   height: 50px;
   text-align: center;
   border-radius: 6px;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
   appearance: none;
   text-align-last: center;
   padding: 0 5px;
+}
+
+/* Simulated spin animation */
+.dial select.spinning {
+  transform: scale(1.1) rotateX(15deg);
 }
 
 button {
