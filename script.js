@@ -26,16 +26,12 @@ function checkCombo() {
     .join("");
 
   const status = document.getElementById("status");
-  const unlockSound = document.getElementById("unlock-sound");
-  const errorSound = document.getElementById("error-sound");
 
   if (input === correctPassword) {
     status.textContent = "🔓 Combo Correct — Unlocked!";
     status.className = "unlocked-effect";
-    unlockSound.play();
   } else {
     status.textContent = "❌ Incorrect combo. Try again!";
     status.className = "";
-    errorSound.play();
   }
 }
