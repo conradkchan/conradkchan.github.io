@@ -3,34 +3,36 @@
 body {
   font-family: 'Bungee', sans-serif;
   text-align: center;
-  background: linear-gradient(to bottom, #3a2e1c, #1a1a1a);
+  background: #1a1a1a;
   color: #f4e9d6;
   padding: 2em;
   background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+  background-size: cover;
 }
 
 h1 {
   margin-bottom: 1em;
-  font-size: 2.5em;
-  color: #ffcc00;
-  text-shadow: 2px 2px 5px #000;
+  font-size: 2.8em;
+  color: #ffd700;
+  text-shadow: 2px 2px 6px #000;
+  letter-spacing: 2px;
 }
 
 .lock {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 1em;
+  gap: 12px;
+  margin-bottom: 1.5em;
   flex-wrap: wrap;
 }
 
 .dial {
-  width: 60px;
+  width: 65px;
   height: 100px;
-  background: radial-gradient(circle at center, #5c3d1b, #2e1e0f);
+  background: radial-gradient(circle at center, #654321, #3b2a1b);
   border: 4px solid #dba55d;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,26 +42,33 @@ h1 {
 .dial select {
   background: #1b1b1b;
   color: #ffcc00;
-  font-size: 24px;
+  font-size: 26px;
+  font-family: 'Bungee', sans-serif;
   border: 2px solid #e9780e;
   outline: none;
   width: 100%;
   height: 50px;
   text-align: center;
   border-radius: 6px;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
   appearance: none;
   text-align-last: center;
   padding: 0 5px;
 }
 
-/* Spin simulation */
-.dial select.spinning {
-  transform: scale(1.1) rotateX(15deg);
+/* Simulated spin feedback */
+.dial select.bump {
+  animation: bump 0.2s ease;
+}
+
+@keyframes bump {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
 
 button {
-  padding: 12px 24px;
+  padding: 12px 26px;
   font-size: 20px;
   background: #e9780e;
   color: #fff;
@@ -76,8 +85,8 @@ button:hover {
 }
 
 #status {
-  font-size: 1.5em;
-  margin-top: 1em;
+  font-size: 1.6em;
+  margin-top: 1.2em;
   color: #ffeb99;
 }
 
@@ -88,5 +97,4 @@ button:hover {
 
 @keyframes glow {
   from { text-shadow: 0 0 10px #00ff66; }
-  to { text-shadow: 0 0 20px #00ff66, 0 0 30px #00ff66; }
-}
+  to { text-shadow: 0 0 20px #00ff66
