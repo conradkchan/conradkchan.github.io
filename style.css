@@ -1,0 +1,31 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin: 2em;
+}
+
+.lock {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1em;
+}
+
+.paddle {
+  width: 50px;
+  height: 50px;
+  background: #eee;
+  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 10px;
+}
+
+.unlocked {
+  color: green;
+  font-weight: bold;
+}
