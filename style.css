@@ -1,13 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
 body {
-  font-family: sans-serif;
+  font-family: 'Bungee', sans-serif;
   text-align: center;
-  background: #222;
-  color: #fff;
+  background: linear-gradient(to bottom, #3a2e1c, #1a1a1a);
+  color: #f4e9d6;
   padding: 2em;
+  background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
 }
 
 h1 {
   margin-bottom: 1em;
+  font-size: 2.5em;
+  color: #ffcc00;
+  text-shadow: 2px 2px 5px #000;
 }
 
 .lock {
@@ -21,10 +27,10 @@ h1 {
 .dial {
   width: 60px;
   height: 100px;
-  background: radial-gradient(circle at center, #444, #111);
-  border: 3px solid #999;
+  background: radial-gradient(circle at center, #5c3d1b, #2e1e0f);
+  border: 4px solid #dba55d;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,10 +38,10 @@ h1 {
 }
 
 .dial select {
-  background: #000;
-  color: #0f0;
+  background: #1b1b1b;
+  color: #ffcc00;
   font-size: 24px;
-  border: 2px solid #555;
+  border: 2px solid #e9780e;
   outline: none;
   width: 100%;
   height: 50px;
@@ -47,38 +53,40 @@ h1 {
   padding: 0 5px;
 }
 
-/* Simulated spin animation */
+/* Spin simulation */
 .dial select.spinning {
   transform: scale(1.1) rotateX(15deg);
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 18px;
-  background: #0f0;
+  padding: 12px 24px;
+  font-size: 20px;
+  background: #e9780e;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 0 10px #0f0;
+  box-shadow: 0 0 12px #e9780e;
   transition: all 0.3s;
 }
 
 button:hover {
-  background: #0c0;
-  box-shadow: 0 0 20px #0f0;
+  background: #c3620d;
+  box-shadow: 0 0 20px #ffaa00;
 }
 
 #status {
   font-size: 1.5em;
   margin-top: 1em;
+  color: #ffeb99;
 }
 
 .unlocked-effect {
-  color: lime;
+  color: #00ff66;
   animation: glow 1s infinite alternate;
 }
 
 @keyframes glow {
-  from { text-shadow: 0 0 10px lime; }
-  to { text-shadow: 0 0 20px lime, 0 0 30px lime; }
+  from { text-shadow: 0 0 10px #00ff66; }
+  to { text-shadow: 0 0 20px #00ff66, 0 0 30px #00ff66; }
 }
