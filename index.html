@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Combo Lock</title>
+  <title>Survivor: Tribal Combo Lock</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>🔐 Enter the Combo</h1>
+  <h1>Survivor: Tribal Combo Lock</h1>
+
   <div class="lock">
     <div class="dial" data-index="0"></div>
     <div class="dial" data-index="1"></div>
@@ -18,9 +20,49 @@
     <div class="dial" data-index="6"></div>
     <div class="dial" data-index="7"></div>
   </div>
+
   <button onclick="checkCombo()">Unlock</button>
   <p id="status"></p>
 
-  <script src="script.js"></script>
+  <script>
+    const correctPassword = "12345678";
+
+    window.onload = () => {
+      document.querySelectorAll(".dial").forEach((dial) => {
+        const select = document.createElement("select");
+        for (let i = 0; i < 10; i++) {
+          const option = document.createElement("option");
+          option.value = i;
+          option.text = i;
+          select.appendChild(option);
+        }
+
+        // Simulated bump animation (no rotation)
+        select.addEventListener("change", () => {
+          select.classList.remove("bump");
+          void select.offsetWidth; // force reflow to restart animation
+          select.classList.add("bump");
+        });
+
+        dial.appendChild(select);
+      });
+    };
+
+    function checkCombo() {
+      const input = Array.from(document.querySelectorAll(".dial select"))
+        .map(sel => sel.value)
+        .join("");
+
+      const status = document.getElementById("status");
+
+      if (input === correctPassword) {
+        status.textContent = "🪵 Combo Correct — Unlocked!";
+        status.className = "unlocked-effect";
+      } else {
+        status.textContent = "🔥 Incorrect combo. Try again!";
+        status.className = "";
+      }
+    }
+  </script>
 </body>
 </html>
