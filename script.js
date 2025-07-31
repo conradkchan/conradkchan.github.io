@@ -1,8 +1,7 @@
-// Set your password here
 const correctPassword = "12345678";
 
 window.onload = () => {
-  document.querySelectorAll(".dial").forEach((dial, index) => {
+  document.querySelectorAll(".dial").forEach((dial) => {
     const select = document.createElement("select");
     for (let i = 0; i < 10; i++) {
       const option = document.createElement("option");
@@ -11,12 +10,11 @@ window.onload = () => {
       select.appendChild(option);
     }
 
-    // Simulate spin by animating then resetting rotation to 0
+    // Simulated bump animation (no rotation)
     select.addEventListener("change", () => {
-      select.classList.add("spinning");
-      setTimeout(() => {
-        select.classList.remove("spinning");
-      }, 300);
+      select.classList.remove("bump");
+      void select.offsetWidth; // force reflow to restart animation
+      select.classList.add("bump");
     });
 
     dial.appendChild(select);
@@ -31,10 +29,10 @@ function checkCombo() {
   const status = document.getElementById("status");
 
   if (input === correctPassword) {
-    status.textContent = "🔓 Combo Correct — Unlocked!";
+    status.textContent = "🪵 Combo Correct — Unlocked!";
     status.className = "unlocked-effect";
   } else {
-    status.textContent = "❌ Incorrect combo. Try again!";
+    status.textContent = "🔥 Incorrect combo. Try again!";
     status.className = "";
   }
 }
