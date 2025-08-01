@@ -56,11 +56,10 @@ h1 {
   -webkit-appearance: none;
   -moz-appearance: none;
 
-  /* Center numbers horizontally */
-  text-align: left;
-  text-indent: 35%;
-  direction: ltr;
-  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .dial option {
