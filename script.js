@@ -1,4 +1,4 @@
-const correctPassword = "1305772842"; // 5 double-digit numbers
+const correctPassword = "0000000000"; // 5 double-digit numbers
 
 document.addEventListener("DOMContentLoaded", () => {
   const dials = document.querySelectorAll(".dial");
