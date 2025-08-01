@@ -45,7 +45,6 @@ h1 {
   width: 90px;               /* Wide enough for double digits */
   height: 90px;
   font-size: 32px;
-  text-align: center;
   background: radial-gradient(circle at center, #654321, #3b2a1b);
   border: 3px solid #dba55d;
   color: #ffcc00;
@@ -56,8 +55,12 @@ h1 {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding: 0;              /* Remove padding for centering */
-  line-height: 90px;       /* Vertically center text */
+
+  /* Center numbers horizontally */
+  text-align: left;
+  text-indent: 35%;
+  direction: ltr;
+  padding: 0;
 }
 
 .dial option {
