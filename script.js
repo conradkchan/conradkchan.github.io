@@ -1,45 +1,55 @@
-const correctPassword = "0000000000"; // 5 double-digit numbers
+const password = ["12", "34", "56", "78", "90"]; // Set your 5-number password here
+const dialElements = Array.from(document.querySelectorAll(".dial"));
+const status = document.getElementById("status");
+const modal = document.getElementById("modal");
+const timestamp = document.getElementById("timestamp");
+const closeModal = document.getElementById("closeModal");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const dials = document.querySelectorAll(".dial");
-
-  // Populate each select with numbers 00–99
-  for (let i = 0; i < 100; i++) {
-    const value = i.toString().padStart(2, "0");
-    dials.forEach(select => {
-      const option = document.createElement("option");
-      option.value = value;
-      option.textContent = value;
-      select.appendChild(option);
-    });
+// Initialize dropdowns with double-digit numbers
+dialElements.forEach(dial => {
+  for (let i = 0; i <= 99; i++) {
+    const num = i.toString().padStart(2, "0");
+    const option = document.createElement("option");
+    option.value = num;
+    option.textContent = num;
+    dial.appendChild(option);
   }
-
-  document.getElementById("unlockBtn").addEventListener("click", checkCombo);
-  document.getElementById("closeModal").addEventListener("click", () => {
-    document.getElementById("modal").classList.add("hidden");
-  });
 });
 
-function checkCombo() {
-  const dials = document.querySelectorAll(".dial");
-  const guess = Array.from(dials).map(d => d.value).join("");
-  const status = document.getElementById("status");
-
-  // Animate each dial on guess
-  dials.forEach(dial => {
-    dial.classList.remove("spin-on-guess");
-    void dial.offsetWidth; // Force reflow to restart animation
-    dial.classList.add("spin-on-guess");
-  });
-
-  if (guess === correctPassword) {
-    status.textContent = "Correct";
-    status.className = "unlocked-effect";
-    const ts = new Date();
-    document.getElementById("timestamp").textContent = ts.toLocaleString();
-    document.getElementById("modal").classList.remove("hidden");
-  } else {
-    status.textContent = "INCORRECT";
-    status.className = "";
-  }
+// Compare two arrays
+function arraysEqual(a, b) {
+  return a.length === b.length && a.every((val, index) => val === b[index]);
 }
+
+function checkPassword() {
+  const guess = dialElements.map(d => d.value);
+  const lock = document.querySelector('.lock');
+
+  // Trigger spin animation
+  lock.classList.remove('spin-on-guess'); // Reset class if already spinning
+  void lock.offsetWidth; // Force reflow to restart animation
+  lock.classList.add('spin-on-guess');
+
+  // Wait until animation completes (~600ms)
+  setTimeout(() => {
+    if (arraysEqual(guess, password)) {
+      status.textContent = 'Correct';
+      status.classList.add('unlocked-effect');
+      showModal();
+    } else {
+      status.textContent = 'INCORRECT';
+      status.classList.remove('unlocked-effect');
+    }
+  }, 600);
+}
+
+function showModal() {
+  const now = new Date();
+  const formatted = now.toLocaleString();
+  timestamp.textContent = `Unlocked at: ${formatted}`;
+  modal.classList.remove("hidden");
+}
+
+closeModal.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
