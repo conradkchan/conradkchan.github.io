@@ -1,6 +1,6 @@
-const correctPassword = "1305772842"; // Replace with your 5 two-digit numbers, e.g., "13 05 77 28 42"
+const correctPassword = "1305772842"; // 5 double-digit numbers
 
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
   const dials = document.querySelectorAll(".dial");
 
   // Populate each select with numbers 00–99
@@ -18,7 +18,7 @@ window.onload = () => {
   document.getElementById("closeModal").addEventListener("click", () => {
     document.getElementById("modal").classList.add("hidden");
   });
-};
+});
 
 function checkCombo() {
   const dials = document.querySelectorAll(".dial");
