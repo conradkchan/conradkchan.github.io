@@ -1,7 +1,7 @@
 const correctPassword = "12345678";
 
 window.onload = () => {
-  document.querySelectorAll(".dial").forEach((dial, index) => {
+  document.querySelectorAll(".dial").forEach((dial) => {
     const numbersDiv = document.createElement("div");
     numbersDiv.className = "numbers";
 
@@ -21,7 +21,7 @@ window.onload = () => {
       dial.dataset.current = currentNum.toString();
 
       numbersDiv.style.transition = 'none';
-      numbersDiv.style.transform = `translateY(${-110 * currentNum}px)`;
+      numbersDiv.style.transform = `translateY(${-parseInt(getComputedStyle(dial).height) * currentNum}px)`;
       void numbersDiv.offsetWidth;
       numbersDiv.style.transition = 'transform 0.5s cubic-bezier(0.77, 0, 0.175, 1)';
     });
@@ -34,13 +34,13 @@ window.onload = () => {
 
 function spinAndCheck() {
   const dials = document.querySelectorAll(".dial");
-  const numbersHeight = 110;
   const spins = 3;
 
   dials.forEach(dial => {
     const numbersDiv = dial.querySelector(".numbers");
     const targetNum = parseInt(dial.dataset.current);
-    const totalShift = (10 * spins + targetNum) * numbersHeight;
+    const dialHeight = parseInt(getComputedStyle(dial).height);
+    const totalShift = (10 * spins + targetNum) * dialHeight;
 
     numbersDiv.style.transition = 'transform 2s cubic-bezier(0.77, 0, 0.175, 1)';
     numbersDiv.style.transform = `translateY(${-totalShift}px)`;
@@ -61,8 +61,9 @@ function spinAndCheck() {
     dials.forEach(dial => {
       const numbersDiv = dial.querySelector(".numbers");
       const targetNum = parseInt(dial.dataset.current);
+      const dialHeight = parseInt(getComputedStyle(dial).height);
       numbersDiv.style.transition = 'none';
-      numbersDiv.style.transform = `translateY(${-targetNum * numbersHeight}px)`;
+      numbersDiv.style.transform = `translateY(${-targetNum * dialHeight}px)`;
       void numbersDiv.offsetWidth;
     });
   }, 2100);
