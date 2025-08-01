@@ -42,7 +42,7 @@ h1 {
 }
 
 .dial {
-  width: 80px;               /* Narrowed for better centering */
+  width: 80px;
   height: 90px;
   font-size: 32px;
   background: radial-gradient(circle at center, #654321, #3b2a1b);
@@ -53,17 +53,14 @@ h1 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
   cursor: pointer;
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  box-sizing: border-box;
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
+  box-sizing: border-box;
 }
 
 .dial option {
-  text-align: center;      /* Center options in dropdown */
+  text-align: center;
 }
 
 button {
@@ -100,7 +97,6 @@ button:hover {
   to { text-shadow: 0 0 20px #00ff66, 0 0 30px #00ff66; }
 }
 
-/* Modal styles */
 .modal.hidden {
   display: none;
 }
@@ -144,7 +140,7 @@ button:hover {
   }
 }
 
-/* Spin/shake animation */
+/* Spin animation */
 @keyframes spin-on-guess {
   0% { transform: rotateX(0deg); }
   25% { transform: rotateX(180deg); }
