@@ -2,39 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Survivor</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>RENEWAL SURVIVOR</h1>
-
+  <h1>Survivor</h1>
   <div class="lock">
     <div class="dial-wrapper">
       <div class="label">Item 1</div>
-      <select class="dial" data-index="0"></select>
+      <select class="dial"></select>
     </div>
     <div class="dial-wrapper">
       <div class="label">Item 2</div>
-      <select class="dial" data-index="1"></select>
+      <select class="dial"></select>
     </div>
     <div class="dial-wrapper">
       <div class="label">Item 3</div>
-      <select class="dial" data-index="2"></select>
+      <select class="dial"></select>
     </div>
     <div class="dial-wrapper">
       <div class="label">Item 4</div>
-      <select class="dial" data-index="3"></select>
+      <select class="dial"></select>
     </div>
     <div class="dial-wrapper">
       <div class="label">Item 5</div>
-      <select class="dial" data-index="4"></select>
+      <select class="dial"></select>
     </div>
   </div>
-
-  <button id="unlockBtn">Unlock</button>
-  <p id="status"></p>
+  <button onclick="checkPassword()">Unlock</button>
+  <div id="status"></div>
 
   <div id="modal" class="modal hidden">
     <div class="modal-content">
