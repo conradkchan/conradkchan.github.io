@@ -42,7 +42,7 @@ h1 {
 }
 
 .dial {
-  width: 90px;               /* Wide enough for double digits */
+  width: 80px;               /* Narrowed for better centering */
   height: 90px;
   font-size: 32px;
   background: radial-gradient(circle at center, #654321, #3b2a1b);
