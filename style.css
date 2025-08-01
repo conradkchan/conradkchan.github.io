@@ -1,6 +1,6 @@
 body {
   font-family: 'Bungee', sans-serif;
-  background: radial-gradient(circle at center, #1a4f1a, #083d08);
+  background: url('https://i.imgur.com/hKoy2QV.jpg') center center / cover no-repeat fixed;
   color: #f8f8c6;
   text-align: center;
   padding: 20px;
@@ -31,6 +31,8 @@ h1 {
 .label {
   margin-bottom: 0.3rem;
   font-size: 1.2rem;
+  color: #f8f8c6;
+  text-shadow: 1px 1px 3px #000;
 }
 
 .dial {
@@ -66,6 +68,7 @@ button:hover {
 #status {
   font-size: 1.5rem;
   margin-top: 1rem;
+  text-shadow: 1px 1px 2px #000;
 }
 
 .unlocked-effect {
