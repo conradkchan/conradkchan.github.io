@@ -5,34 +5,34 @@ body {
   text-align: center;
   background: #1a1a1a;
   color: #f4e9d6;
-  padding: 2em;
+  padding: 2em 1em;
   background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
   background-size: cover;
 }
 
 h1 {
   margin-bottom: 1em;
-  font-size: 2.8em;
+  font-size: 2em;
   color: #ffd700;
   text-shadow: 2px 2px 6px #000;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .lock {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 1.5em;
   flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 2em;
 }
 
 .dial {
-  width: 70px;
-  height: 110px;
+  width: 60px;
+  height: 90px;
   background: radial-gradient(circle at center, #654321, #3b2a1b);
-  border: 4px solid #dba55d;
-  border-radius: 14px;
-  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.7);
+  border: 3px solid #dba55d;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
   position: relative;
   overflow: hidden;
   user-select: none;
@@ -48,23 +48,21 @@ h1 {
 }
 
 .numbers div {
-  height: 110px;
-  line-height: 110px;
-  font-size: 64px;
+  height: 90px;
+  line-height: 90px;
+  font-size: 48px;
   color: #ffcc00;
-  text-shadow:
-    0 1px 0 #dba55d,
-    0 2px 5px rgba(0,0,0,0.5);
+  text-shadow: 0 1px 0 #dba55d, 0 2px 5px rgba(0,0,0,0.5);
   font-family: 'Bungee', cursive;
 }
 
 button {
-  padding: 12px 28px;
-  font-size: 20px;
+  padding: 14px 30px;
+  font-size: 1.2em;
   background: #e9780e;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 0 12px #e9780e;
   transition: all 0.3s;
@@ -76,9 +74,10 @@ button:hover {
 }
 
 #status {
-  font-size: 1.6em;
-  margin-top: 1.2em;
+  font-size: 1.5em;
+  margin-top: 1.4em;
   color: #ffeb99;
+  word-break: break-word;
 }
 
 .unlocked-effect {
@@ -89,4 +88,35 @@ button:hover {
 @keyframes glow {
   from { text-shadow: 0 0 10px #00ff66; }
   to { text-shadow: 0 0 20px #00ff66, 0 0 30px #00ff66; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .lock {
+    gap: 8px;
+  }
+
+  .dial {
+    width: 48px;
+    height: 70px;
+  }
+
+  .numbers div {
+    height: 70px;
+    line-height: 70px;
+    font-size: 36px;
+  }
+
+  button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  #status {
+    font-size: 1.3em;
+  }
 }
