@@ -42,7 +42,7 @@ h1 {
 }
 
 .dial {
-  width: 90px;               /* Increased width from 70px */
+  width: 90px;               /* Wide enough for double digits */
   height: 90px;
   font-size: 32px;
   text-align: center;
@@ -55,7 +55,13 @@ h1 {
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
-  padding-right: 8px;        /* Added padding to prevent clipping */
+  -moz-appearance: none;
+  padding: 0;              /* Remove padding for centering */
+  line-height: 90px;       /* Vertically center text */
+}
+
+.dial option {
+  text-align: center;      /* Center options in dropdown */
 }
 
 button {
