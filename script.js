@@ -1,4 +1,4 @@
-const password = ["00", "99", "00", "01", "00"];
+const password = ["35", "51", "44", "48", "56"];
 const dialElements = Array.from(document.querySelectorAll(".dial"));
 const status = document.getElementById("status");
 const modal = document.getElementById("modal");
